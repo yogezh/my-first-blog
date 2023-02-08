@@ -1,0 +1,62 @@
+cmd
+mkdir userform
+cd userform
+python -m venv myvenv 
+myvenv\scripts\activate
+
+CREATE A FILE WITH NAME requirements.txt THAT CONTAINS "Django~=3.2.10" AND SAVE IT.
+
+pip install -r requirements.txt
+django-admin.exe startproject mysite .      
+------The period . is crucial because it tells the script to install Django in your current directory (for which the period . is a short-hand reference).
+
+GO TO settings.py AND CHANGE THE TIMEZONE AS -> TIME_ZONE = 'Asia/Calcutta' 
+
+CREATE NEW URL UNDERNEATH THE STATIC_URL AS -> STATIC_ROOT = BASE_DIR / 'static'
+
+When DEBUG is True and ALLOWED_HOSTS is empty, the host is validated against ['localhost', '127.0.0.1', '[::1]']. This won't match our hostname on PythonAnywhere once we deploy our application so we will change the following setting:
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+
+To create a database for our blog, let's run the following in the console: we need to be in the userform directory that contains the manage.py file.
+python manage.py migrate
+
+To run Database server we need to run following cmd in the console:
+python manage.py runserver
+
+NOW WE WANT TO CREATE AN APP WITH NAME "blog" AND KEEP EVERYTHING ORGANISED SO TYPE THE FOLLOWING CMD IN CONSOLE.
+python manage.py startapp blog
+
+ADD OUR NEW APP NAME IN settings.py FILE UNDER INSTALLED_APPS = [..... 'blog',] add 'blog', in the last line before ] .
+
+WE NEED TO MODIFY OUR models.py FILE AND UNDERSTAND IT CLEARLY BASED ON THE PROGRAM GIVEN.
+
+SAVE EVERYTHING THAT BEEN MODIFIED UNTIL NOW AS WE NEED TO TELL THE DJANGO ABOUT ALL THE MODIFICATIONS WE MADE SPECIALLY THE MODEL FILE WHERE WE ADDED CERTAIN MODEL.
+
+RUN THE FOLLOWING CMD TO UPDATE THE DATABASE AND MODELS CONNECTIONS.
+python manage.py makemigrations blog
+
+Django prepared a migration file for us that we now have to apply to our database by typing following cmd in console.
+python manage.py migrate blog
+
+NOW MAKE CHANGES IN admin.py file UNDER blog folder WHERE YOU NEED TO CALL THE POST FUNCTION WE CREATED IN MODEL AS PER THE FILE YOU CAN SEE NOW IN admin.py AND RUN SERVER AS GIVEN BELOW.
+python manage.py runserver
+http://127.0.0.1:8000/admin/login/?next=/admin/
+
+NOW LETS CREATE A SUPER USER IN CMD CONSOLE TYPE FOLLOWING CMD.
+python manage.py createsuperuser
+
+NOW LOGIN BASED ON THE USERNAME AND PASSWORD YOU CREATED THEN ADD 2-3 POSTS.
+
+
+INSTALLING GIT : 
+
+You can download Git from git-scm.com. You can hit "next" on all steps except for two: in the step where it asks to choose your editor, you should pick Nano, and in the step entitled "Adjusting your PATH environment", choose "Use Git and optional Unix tools from the Windows Command Prompt" (the bottom option). Other than that, the defaults are fine. Checkout Windows-style, commit Unix-style line endings is good.
+
+During installation, if you are presented with the option of "Adjusting the name of the initial branch in new repositories", please choose to "Override the default" and use "main". This will align your installation of Git with the broad direction of the global developer community, and the "main" branch will be used through the remainder of this tutorial. Please see https://sfconservancy.org/news/2020/jun/23/gitbranchname/ and https://github.com/github/renaming for further discussion of this subject.
+
+Do not forget to restart the command prompt or PowerShell after the installation finished successfully.
+
+
+
+
+
