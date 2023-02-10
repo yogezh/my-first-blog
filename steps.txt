@@ -56,6 +56,31 @@ During installation, if you are presented with the option of "Adjusting the name
 
 Do not forget to restart the command prompt or PowerShell after the installation finished successfully.
 
+$ git init
+Initialized empty Git repository in ~/djangogirls/.git/
+$ git config --global user.name "Your Name"
+$ git config --global user.email you@example.com
+
+SAVE THE .gitignore file IN userform FOLDER.
+
+It's a good idea to use a git status command before git add or whenever you find yourself unsure of what has changed. This will help prevent any surprises from happening, such as wrong files being added or committed. The git status command returns information about any untracked/modified/staged files, the branch status, and much more.
+
+And finally we save our changes. Go to your console and run these commands:
+$ git add .
+$ git commit -m "My User Form app, first commit"
+
+Now we need to hook up the Git repository on your computer to the one up on GitHub.
+
+Type the following into your console (replace <your-github-username> with the username you entered when you created your GitHub account, but without the angle-brackets -- the URL should match the clone URL you just saw).
+$ git remote add origin https://github.com/yogezh/my-first-blog.git
+$ git push -u origin main
+
+WAIT FOR FILES TO BE UPLOADED IN GITHUB AND DONE!
+
+VISIT THIS SITE FOR FURTHER : https://tutorial.djangogirls.org/en/deploy/
+
+NEXT STEP : https://tutorial.djangogirls.org/en/django_urls/
+
 
 
 
